@@ -119,7 +119,7 @@ class AnlzFile(abc.Mapping):
                 # Bank: 0-8
                 mood = Int16ub.parse(tag_data[18:20])
                 bank = Int16ub.parse(tag_data[28:30])
-                if 1 <= mood <= 3 and 0 <= bank <= 8:
+                if (1 <= mood <= 3) and (0 <= bank <= 8 or bank >= 256):
                     logger.debug("PSSI is not garbled!")
                 else:
                     logger.debug("PSSI is garbled!")
